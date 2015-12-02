@@ -5,6 +5,7 @@ namespace AppBundle\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 class DefaultController extends Controller
 {
@@ -13,9 +14,27 @@ class DefaultController extends Controller
      */
     public function indexAction(Request $request)
     {
-        // replace this example code with whatever you need
-        return $this->render('default/index.html.twig', array(
-            'base_dir' => realpath($this->container->getParameter('kernel.root_dir').'/..'),
-        ));
+        $data = [
+            'text'   => 'foo',
+            'choice' => 'foo',
+        ];
+        var_dump($data);
+        // array (size=2)
+        //   'text' => string 'foo' (length=3)
+        //   'choice' => string 'foo' (length=3)
+        $form = $this->createForm('test', $data);
+        $form->submit(
+            [
+                'text'   => 'bar',
+                'choice' => 'bar',
+            ],
+            false
+        );
+        var_dump($form->getData());
+        // array (size=2)
+        //   'text' => string 'bar' (length=3)
+        //   'choice' => string 'foo' (length=3)
+
+        return new Response();
     }
 }

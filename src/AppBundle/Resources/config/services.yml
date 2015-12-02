@@ -1,0 +1,5 @@
+services:
+    app.form.type.test:
+        class: AppBundle\Form\Type\TestType
+        tags:
+            - { name: form.type, alias: test }
