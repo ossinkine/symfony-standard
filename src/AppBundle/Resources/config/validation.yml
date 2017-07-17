@@ -1,0 +1,5 @@
+AppBundle\Model\Foo:
+    constraints:
+        - Expression: "this.foo !== null"
+
+AppBundle\Model\Bar:
