@@ -1,0 +1,12 @@
+AppBundle\Entity\Father:
+    type: entity
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    oneToMany:
+        sons:
+            targetEntity: Son
+            mappedBy: father

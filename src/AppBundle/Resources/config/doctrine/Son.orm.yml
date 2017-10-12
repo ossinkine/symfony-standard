@@ -1,0 +1,12 @@
+AppBundle\Entity\Son:
+    type: entity
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    manyToOne:
+        father:
+            targetEntity: Father
+            inversedBy: sons
